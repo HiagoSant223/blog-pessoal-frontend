@@ -1,16 +1,24 @@
-import Flex from './components/Flex/Flex';
-import Grid from './components/Grid/Grid';
-import Home from './pages/home/Home';
+import Home from './pages/Home/Home';
+import Navbar from './components/NavBar/NavBar';
+import Footer from './components/Footer/Footer';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Login from './pages/Home/Login/Login';
 
 function App() {
   return (
     <>
-    {/* <Flex/>
-    <Grid/> */}
-    <Home title='Componente Home'
-          description='Este é um componente Home que recebe props'/>
+    <BrowserRouter>
+        <Navbar />
+          <div className='min-h-[80vh]'>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/home" element={<Home />} />
+            </Routes>
+          </div>
+          <Footer />
+        </BrowserRouter>
     </>
 );
 }
-
-export default App
+export default App;
