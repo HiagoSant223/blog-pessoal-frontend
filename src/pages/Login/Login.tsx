@@ -1,15 +1,15 @@
 import React, { ChangeEvent, useContext, useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import UsuarioLogin from '../../../models/UsuarioLogin';
-import { AuthContext } from '../../../contexts/AuthContext';
+import UsuarioLogin from '../../models/UsuarioLogin';
+import { AuthContext } from '../../contexts/AuthContext';
 import { RotatingLines } from 'react-loader-spinner';
+import './Login.css'
 
 function Login() {
+
   const navigate = useNavigate();
 
-  const [usuarioLogin, setUsuarioLogin] = useState<UsuarioLogin>(
-    {} as UsuarioLogin
-  );
+  const [usuarioLogin, setUsuarioLogin] = useState<UsuarioLogin>({} as UsuarioLogin);
 
   const { usuario, handleLogin, isLoading } = useContext(AuthContext);
 
@@ -20,15 +20,19 @@ function Login() {
 }, [usuario])
 
 function atualizarEstado(e: ChangeEvent<HTMLInputElement>) {
+
   setUsuarioLogin({
-      ...usuarioLogin,
+
+      ...usuarioLogin, // os 3 pontinho se chama = Spread Operator => Operador de Espalhamento
+
       [e.target.name]: e.target.value
   })
+  //console.log(`Email: ${usuarioLogin.usuario}`)
 }
 
 function login(e: ChangeEvent<HTMLFormElement>) {
-  e.preventDefault()
-  handleLogin(usuarioLogin)
+    e.preventDefault()
+    handleLogin(usuarioLogin)
 }
 
   return (

@@ -1,7 +1,7 @@
 import Navbar from './components/NavBar/NavBar';
 import Footer from './components/Footer/Footer';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Login from './pages/Home/Login/Login';
+import Login from './pages/Login/Login';
 import Cadastro from './pages/Cadastro/Cadastro';
 import Home from './pages/Home/Home';
 import { AuthProvider } from './contexts/AuthContext';

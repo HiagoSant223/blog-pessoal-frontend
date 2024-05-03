@@ -3,7 +3,6 @@ import './Cadastro.css'
 
 function Cadastro() {
 
-
   return (
     <>
       <div className="grid grid-cols-1 lg:grid-cols-2 h-screen place-items-center font-bold">
@@ -14,7 +13,7 @@ function Cadastro() {
             <label htmlFor="nome">Nome</label>
             <input
               type="text"
-              id="nome"
+              id="nome" 
               name="nome"
               placeholder="Nome"
               className="border-2 border-slate-700 rounded p-2"

@@ -34,7 +34,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
         token: ""
     })
 
-    const [isLoading, setIsLoading] = useState<boolean>(false)
+    const [isLoading, setIsLoading] = useState(false)
 
 
     // RESPONSAVEL POR LOGAR O USUARIO E ATUALIZAR O ESTADO DE USUARIO
