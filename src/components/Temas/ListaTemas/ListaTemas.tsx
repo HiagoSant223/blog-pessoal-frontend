@@ -7,19 +7,24 @@ import { buscar } from '../../../services/Service';
 import CardTemas from '../CardTemas/CardTemas';
 
 function ListaTemas() {
+
+  // Const TEMAS vai guardar um array de objetos = [{tema1} , {tema2} , {tema3}...]
   const [temas, setTemas] = useState<Tema[]>([]);
 
   const navigate = useNavigate();
 
   const { usuario, handleLogout } = useContext(AuthContext);
-  const token = usuario.token;
 
+  const token = usuario.token;
+ 
+  // Função async BUSCAR TEMAS da Service faz uma requisição para o back passando o HEADERS : Token para autorização
   async function buscarTemas() {
     try {
       await buscar('/temas', setTemas, {
         headers: { Authorization: token },
       });
     } catch (error: any) {
+      
       if (error.toString().includes('403')) {
         alert('O token expirou, favor logar novamente')
         handleLogout()
