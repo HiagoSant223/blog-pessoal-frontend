@@ -5,18 +5,16 @@ import { AuthContext } from '../../contexts/AuthContext'
 
 
 function Navbar() {
-  let navigate = useNavigate()
 
-  const { usuario, handleLogout } = useContext(AuthContext)
+  const navigate = useNavigate()
+
+  const { handleLogout } = useContext(AuthContext)
 
   function logout() {
       handleLogout()
       alert('Usuário deslogado com sucesso')
       navigate('/login')
   }
-
-  let navbarComponent
-  
 
   return (
     <>

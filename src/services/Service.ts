@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-types */
 import axios from "axios";
 
 const api = axios.create({

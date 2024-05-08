@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { ChangeEvent, FormEvent, useEffect, useState } from 'react'
 import { RotatingLines } from 'react-loader-spinner'
 import { useNavigate } from 'react-router-dom'
