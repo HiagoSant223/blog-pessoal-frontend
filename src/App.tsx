@@ -1,3 +1,5 @@
+import React from 'react';
+
 import Navbar from './components/NavBar/NavBar';
 import Footer from './components/Footer/Footer';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
@@ -8,14 +10,22 @@ import { AuthProvider } from './contexts/AuthContext';
 import ListaTemas from './components/Temas/ListaTemas/ListaTemas';
 import FormularioTema from './components/Temas/FormularioTemas/FormularioTema';
 import DeletarTema from './components/Temas/DeletarTemas/DeletarTema';
+import ListaPostagens from './components/Postagens/ListaPostagens/ListaPostagens';
+import FormularioPostagem from './components/Postagens/FormularioPostagem/FormularioPostagem';
+import DeletarPostagem from './components/Postagens/DeletarPostagem/DeletarPostagem';
+import Perfil from './pages/Perfil/Perfil';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 function App() {
+  
   return (
     <>
-    <AuthProvider>
+      <AuthProvider>
+      <ToastContainer />
         <BrowserRouter>
-          <Navbar />
+        <Navbar />
           <div className='min-h-[80vh]'>
             <Routes>
               <Route path="/" element={<Login />} />
@@ -26,12 +36,18 @@ function App() {
               <Route path="/cadastroTema" element={<FormularioTema />} />
               <Route path="/editarTema/:id" element={<FormularioTema />} />
               <Route path="/deletarTema/:id" element={<DeletarTema />} />
+              <Route path="/postagens" element={<ListaPostagens />} />
+              <Route path="/cadastroPostagem" element={<FormularioPostagem />} />
+              <Route path="/editarPostagem/:id" element={<FormularioPostagem />} />
+              <Route path="/deletarPostagem/:id" element={<DeletarPostagem />} />
+              <Route path="/perfil" element={<Perfil />} />
             </Routes>
           </div>
           <Footer />
         </BrowserRouter>
-        </AuthProvider>
+      </AuthProvider>
     </>
   );
 }
+
 export default App;

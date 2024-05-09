@@ -1,17 +1,23 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { ChangeEvent, useContext, useEffect, useState } from 'react';
+import './Login.css';
+
 import { Link, useNavigate } from 'react-router-dom';
-import UsuarioLogin from '../../models/UsuarioLogin';
+
 import { AuthContext } from '../../contexts/AuthContext';
+import UsuarioLogin from '../../models/UsuarioLogin';
 import { RotatingLines } from 'react-loader-spinner';
-import './Login.css'
 
 function Login() {
-
   const navigate = useNavigate();
 
-  const [usuarioLogin, setUsuarioLogin] = useState<UsuarioLogin>({} as UsuarioLogin);
+  const [usuarioLogin, setUsuarioLogin] = useState<UsuarioLogin>(
+    {} as UsuarioLogin
+  );
 
-  const { usuario, handleLogin, isLoading } = useContext(AuthContext);
+  const { usuario, handleLogin } = useContext(AuthContext);
+
+  const {isLoading} = useContext(AuthContext) 
 
   useEffect(() => {
     if (usuario.token !== "") {
@@ -20,19 +26,15 @@ function Login() {
 }, [usuario])
 
 function atualizarEstado(e: ChangeEvent<HTMLInputElement>) {
-
   setUsuarioLogin({
-
-      ...usuarioLogin, // os 3 pontinho se chama = Spread Operator => Operador de Espalhamento
-
+      ...usuarioLogin,
       [e.target.name]: e.target.value
   })
-  //console.log(`Email: ${usuarioLogin.usuario}`)
 }
 
 function login(e: ChangeEvent<HTMLFormElement>) {
-    e.preventDefault()
-    handleLogin(usuarioLogin)
+  e.preventDefault()
+  handleLogin(usuarioLogin)
 }
 
   return (
