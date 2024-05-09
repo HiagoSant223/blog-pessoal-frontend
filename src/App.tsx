@@ -1,22 +1,20 @@
-import React from 'react';
-
-import Navbar from './components/NavBar/NavBar';
-import Footer from './components/Footer/Footer';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import 'react-toastify/dist/ReactToastify.css';
 import Login from './pages/Login/Login';
-import Cadastro from './pages/Cadastro/Cadastro';
-import Home from './pages/Home/Home';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { AuthProvider } from './contexts/AuthContext';
+import { ToastContainer } from 'react-toastify';
+import Cadastro from './pages/Cadastro/Cadastro';
+import Navbar from './components/NavBar/NavBar';
+import Home from './pages/Home/Home';
+import Footer from './components/Footer/Footer';
 import ListaTemas from './components/Temas/ListaTemas/ListaTemas';
 import FormularioTema from './components/Temas/FormularioTemas/FormularioTema';
 import DeletarTema from './components/Temas/DeletarTemas/DeletarTema';
 import ListaPostagens from './components/Postagens/ListaPostagens/ListaPostagens';
 import FormularioPostagem from './components/Postagens/FormularioPostagem/FormularioPostagem';
-import DeletarPostagem from './components/Postagens/DeletarPostagem/DeletarPostagem';
-import Perfil from './pages/Perfil/Perfil';
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 
+import Perfil from './pages/Perfil/Perfil';
+import DeletarPostagem from './components/Postagens/DeletarPostagem/DeletarPostagem';
 
 function App() {
   
