@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import homeLogo from '../../assets/home.png'
 import './Home.css';
 import ListaPostagens from '../../components/Postagens/ListaPostagens/ListaPostagens';
@@ -7,6 +7,9 @@ import ModalPostagem from '../../components/Postagens/ModalPostagem/ModalPostage
 
 
 function Home() {
+
+  const [mostrarPostagens, setMostrarPostagens] = useState(false);
+
     return (
         <>
         <div className="bg-indigo-900 flex justify-center">
@@ -17,7 +20,12 @@ function Home() {
   
               <div className="flex justify-around gap-4">
               <ModalPostagem />
-              <button className='rounded bg-white text-blue-800 py-2 px-4'>Ver postagens</button>
+              <button
+                  className='rounded bg-white text-blue-800 py-2 px-4'
+                  onClick={() => setMostrarPostagens(!mostrarPostagens)}
+                >
+                  {mostrarPostagens ? 'Ocultar postagens' : 'Ver postagens'}
+                </button>
             </div>
             </div>
   
