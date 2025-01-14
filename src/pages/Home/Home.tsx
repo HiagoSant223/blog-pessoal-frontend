@@ -35,7 +35,8 @@ function Home() {
             </div>
           </div>
         </div>
-        <ListaPostagens />
+         {/* Exibe ListaPostagens apenas se mostrarPostagens for true */}
+         {mostrarPostagens && <ListaPostagens />}
       </>
     );
 }
